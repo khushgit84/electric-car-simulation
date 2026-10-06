@@ -60,8 +60,8 @@ export const hotspots: { id: HotspotId; index: string; label: string; anchor: { 
 
 // Enable each pair only after first/last frames, crop and color have been checked.
 export const clips: Record<SystemId, { forward: string; reverse: string; enabled: boolean }> = {
-  battery: { forward: '/media/battery-forward.mp4', reverse: '/media/battery-reverse.mp4', enabled: false },
-  drive: { forward: '/media/drive-forward.mp4', reverse: '/media/drive-reverse.mp4', enabled: false },
+  battery: { forward: '/media/battery-hover-forward.mp4', reverse: '/media/battery-hover-reverse.mp4', enabled: true },
+  drive: { forward: '/media/hood-hover-forward.mp4', reverse: '/media/hood-hover-reverse.mp4', enabled: true },
   optics: { forward: '/media/optics-forward.mp4', reverse: '/media/optics-reverse.mp4', enabled: false },
   interior: { forward: '', reverse: '', enabled: false },
 }
