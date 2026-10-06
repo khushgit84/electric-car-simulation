@@ -1,4 +1,4 @@
-export type SystemId = 'battery' | 'drive' | 'optics'
+export type SystemId = 'battery' | 'drive' | 'optics' | 'interior'
 export const systems = {
   battery: {
     index: '01', label: 'Battery', category: 'Energy storage', title: 'The energy\nbeneath you.',
@@ -34,15 +34,26 @@ export const systems = {
       { label: 'Projection lens', text: 'The optical lens directs the light into the designed beam pattern.', x: 32.9, y: 55.7 },
       { label: 'LED module', text: 'The light source sits behind the projection optics.', x: 50.3, y: 57.2 },
       { label: 'Heat sink', text: 'Metal fins dissipate heat from the light-source assembly.', x: 61.9, y: 56.3 },
+  interior: {
+    index: '04', label: 'Interior', category: 'Cabin design', title: 'Luxury,\ninside.',
+    short: 'Explore the cabin',
+    description: 'The cabin features sustainable materials and advanced ergonomics.',
+    benefit: 'Comfort meets technology.',
+    image: '/media/exterior-polished.png',
+    anchor: { x: 60, y: 30 },
+    points: [
+      { label: 'Steering', text: 'Minimalist.', x: 40, y: 40 },
+      { label: 'Seats', text: 'Comfort.', x: 50, y: 50 },
+      { label: 'Screen', text: 'OLED.', x: 60, y: 40 },
     ],
   },
 } as const
-export const systemIds: SystemId[] = ['battery', 'drive', 'optics']
+export const systemIds: SystemId[] = ['battery', 'drive', 'optics', 'interior']
 export type HotspotId = SystemId | 'wheels' | 'paint'
 export const hotspots: { id: HotspotId; index: string; label: string; anchor: { x: number; y: number }; target: SystemId | null }[] = [
-  ...(['battery', 'drive'] as const).map(id => ({ id, index: systems[id].index, label: systems[id].label, anchor: systems[id].anchor, target: id })),
-  { id: 'paint', index: '03', label: 'Body colour', anchor: { x: 55, y: 51 }, target: null },
-  { id: 'wheels', index: '04', label: 'Wheel design', anchor: { x: 48, y: 71 }, target: null },
+  ...(['battery', 'drive', 'interior'] as const).map(id => ({ id, index: systems[id].index, label: systems[id].label, anchor: systems[id].anchor, target: id })),
+  { id: 'paint', index: '05', label: 'Body colour', anchor: { x: 55, y: 51 }, target: null },
+  { id: 'wheels', index: '06', label: 'Wheel design', anchor: { x: 48, y: 71 }, target: null },
 ]
 
 // Enable each pair only after first/last frames, crop and color have been checked.
@@ -50,4 +61,5 @@ export const clips: Record<SystemId, { forward: string; reverse: string; enabled
   battery: { forward: '/media/battery-forward.mp4', reverse: '/media/battery-reverse.mp4', enabled: false },
   drive: { forward: '/media/drive-forward.mp4', reverse: '/media/drive-reverse.mp4', enabled: false },
   optics: { forward: '/media/optics-forward.mp4', reverse: '/media/optics-reverse.mp4', enabled: false },
+  interior: { forward: '', reverse: '', enabled: false },
 }
