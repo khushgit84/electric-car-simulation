@@ -11,3 +11,5 @@ Thumbs.db
 .codex/
 .claude/settings.local.json
 tmp/
+
+.vercel

@@ -34,6 +34,8 @@ export const systems = {
       { label: 'Projection lens', text: 'The optical lens directs the light into the designed beam pattern.', x: 32.9, y: 55.7 },
       { label: 'LED module', text: 'The light source sits behind the projection optics.', x: 50.3, y: 57.2 },
       { label: 'Heat sink', text: 'Metal fins dissipate heat from the light-source assembly.', x: 61.9, y: 56.3 },
+    ],
+  },
   interior: {
     index: '04', label: 'Interior', category: 'Cabin design', title: 'Luxury,\ninside.',
     short: 'Explore the cabin',
